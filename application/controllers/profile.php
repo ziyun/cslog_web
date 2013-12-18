@@ -14,6 +14,9 @@ class Profile extends CI_Controller {
         $headshots = $this->player->headshots($pid);
         $hitgroups = $this->player->hitgroups($pid);
         $data = array('headshots' => $headshots, 'hitgroups' => $hitgroups);
+        $header_data = array('title' => "Player Detail");
+        $this->load->view('header', $header_data);
         $this->load->view('profile_view', $data);
+        $this->load->view('footer');
 	}
 }
