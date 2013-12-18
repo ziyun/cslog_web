@@ -1,20 +1,20 @@
    <div class="col-md-2"></div>
     <div class="col-md-8">
-    <table class="table">
+    <table class="table table-hover">
       <tr>
-        <th>Alias</th>
-        <th>Kills</th>
-        <th>Deaths</th>
-        <th>Ratio</th>
+        <th class="text-left" width="40%">Alias</th>
+        <th class="text-center" width="20%">Kills</th>
+        <th class="text-center" width="20%">Deaths</th>
+        <th class="text-center" width="20%">Ratio</th>
       </tr>
       <?php
       foreach ($names as $row)
       {
           echo '<tr>';
-          echo '<td><a href="profile/detail/' . $row->profile_id . '">' . $row->aliases . '</a></td>';
-          echo '<td>' . $row->kills . '</td>';
-          echo '<td>' . $row->deaths . '</td>';
-          echo '<td>' . $row->ratio . '</td>';
+          echo '<td class="text-left"><a href="profile/detail/' . $row->profile_id . '">' . $row->aliases . '</a></td>';
+          echo '<td class="text-center">' . $row->kills . '</td>';
+          echo '<td class="text-center">' . $row->deaths . '</td>';
+          echo '<td class="text-center">' . $row->ratio . '</td>';
           echo '</tr>';
       }
       ?>

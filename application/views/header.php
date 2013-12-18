@@ -23,7 +23,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="#">Players</a></li>
-          <li><a href="#">Matches</a></li>
+          <li><a href="/cslog/match">Matches</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Link</a></li>
