@@ -26,8 +26,8 @@ class Match_model extends CI_Model {
     function player_score($mid)
     {
         $sql = "SELECT C.`aliases`, A.`team`, A.`kills`, B.`deaths` 
-        FROM (SELECT `player_a`, `team`, COUNT(*) AS `kills` FROM `Kill` WHERE `match_id` = 1 GROUP BY `player_a`) AS A
-        INNER JOIN (SELECT `player_b`, COUNT(*) AS `deaths` FROM `Kill` WHERE `match_id` = 1 GROUP BY `player_b`) AS B
+        FROM (SELECT `player_a`, `team`, COUNT(*) AS `kills` FROM `Kill` WHERE `match_id` = ".$mid." GROUP BY `player_a`) AS A
+        INNER JOIN (SELECT `player_b`, COUNT(*) AS `deaths` FROM `Kill` WHERE `match_id` = ".$mid." GROUP BY `player_b`) AS B
         ON A.`player_a` = B.`player_b`
         INNER JOIN (SELECT `profile_id`, GROUP_CONCAT(`alias`) AS `aliases` FROM `Alias` GROUP BY `profile_id`) AS C
         ON A.`player_a` = C.`profile_id`;"; 
