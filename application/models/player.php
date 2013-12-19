@@ -12,7 +12,8 @@ class Player extends CI_Model {
     {
         $sql = "SELECT COUNT(*) AS `headshots` FROM `Kill` WHERE `player_a` = " . $pid . " AND `headshot` = 1;";
         $query = $this->db->query($sql);
-        return $query->result()[0]->headshots;
+        $row = $query->result();
+        return $row[0]->headshots;
     }
 
     function headshot_breakdown($pid)
