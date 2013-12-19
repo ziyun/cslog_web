@@ -63,11 +63,11 @@ class Player extends CI_Model {
 
     function weapon_performance($pid)
     {
-        $sql = "SELECT A.`weapon`, A.`damage`, A.`damage_armor`, A.`total_damage`, B.`headshots` FROM 
+        $sql = "SELECT A.`weapon`, A.`damage`, A.`damage_armor`, A.`total_damage`, IFNULL(B.`headshots`, 0) AS `headshots` FROM 
         (SELECT `weapon`, SUM(`damage`) AS `damage`, SUM(`damage_armor`) AS `damage_armor`, 
         SUM(`damage`) + SUM(`damage_armor`) AS `total_damage` 
         FROM `Attack` AS A WHERE `player_a` = ".$pid." GROUP BY `weapon`) AS A
-        INNER JOIN (SELECT `weapon`, COUNT(*) AS `headshots` 
+        LEFT JOIN (SELECT `weapon`, COUNT(*) AS `headshots` 
         FROM `Kill` WHERE `player_a` = ".$pid." AND `headshot` = 1 GROUP BY `weapon`) AS B
         ON A.`weapon` = B.`weapon`";
         $query = $this->db->query($sql);
