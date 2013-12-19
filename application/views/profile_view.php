@@ -1,5 +1,15 @@
    <div class="col-md-2"></div>
     <div class="col-md-8">
+     <?php
+     if (count($aliases) >= 1)
+     {
+         echo '<h1>' . $aliases[0]->alias . '</h1>';
+         for ($i = 1; $i < count($aliases); $i++)
+         {
+             echo '<p>'.$aliases[$i]->aliase.'</p>';
+         }
+     }
+     ?>
      <table class="table">
       <tr>
        <th class="text-left" width="30%">Weapon</th>
@@ -9,7 +19,6 @@
        <th class="text-center" width="17.5%">Headshots</th>
       </tr>
       <?php
-      #foreach ($headshot_breakdown as $row)
       foreach ($weapon_performance as $row)
       {
         echo '<tr>';

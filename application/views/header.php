@@ -26,7 +26,7 @@
           <li><a href="/cslog/match">Matches</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
+          <li><a href="/cslog/about">About</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>

@@ -30,17 +30,12 @@ class Player extends CI_Model {
         return $query->result();
     }
 
-    /*
-    function map_performance($pid)
+    function aliases($pid)
     {
-        $sql = "SELECT SUM(A.`kills`) AS `total_kills`, B.`map` FROM (SELECT `match_id`, COUNT(*) AS `kills` FROM `Kill` 
-        WHERE `player_a` = ".$pid." GROUP BY `match_id`) AS A 
-        INNER JOIN (SELECT `match_id`, `map` FROM `Match`) AS B 
-        ON A.`match_id` = B.`match_id` GROUP BY B.`map`;"
+        $sql = "SELECT `alias` FROM `Alias` WHERE `profile_id` = ".$pid.";";
         $query = $this->db->query($sql);
         return $query->result();
     }
-    */
 
     function map_performance($pid)
     {
